@@ -2,6 +2,10 @@ class PostsController < ApplicationController
   def index
   end
 
+  def show
+    @post = Post.find(params[:id])
+  end
+
   def new
   end
 
@@ -13,7 +17,7 @@ class PostsController < ApplicationController
     redirect_to@post
   end
 
-  private 
+  private
     def post_params
       params.require(:post).permit(:title, :body)
     end
